@@ -26,6 +26,7 @@ public class DBManager {
         }
         return conn;
     }
+    
     // Insert DB record into AreaGridTiles table.
     // This is the "C" in CRUD.
     public void insertAreaGridTile(String sAreaID, int iX, int iY, int iR, int iG){
