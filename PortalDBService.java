@@ -1,3 +1,5 @@
+package com.dronerecon.ws;
+
 import java.io.*;
 public class PortalDBService extends HttpServlet{
     public void doGet(HttpServletRequest request,
@@ -16,8 +18,18 @@ public class PortalDBService extends HttpServlet{
 // "tiley"
 // "r"
 // "g"
-        ******
+        String sArea_id = request.getParameter("area_id");
+        String sTileX = request.getParameter("tilex");
+        String sTileY = request.getParameter("tiley");
+        int iTileX = Integer.parseInt(sTileX);
+        int iTileY = Integer.parseInt(sTileY);
+        String r =request.getParameter("r");
+        String g =request.getParameter("g");
+        int ir = Integer.parseInt(r);
+        int ig = Integer.parseInt(g);
+
 // ############
+
 
 // ############
 // Instantiate a DBManager instance.
@@ -33,8 +45,9 @@ public class PortalDBService extends HttpServlet{
 
         // ############
 // Call insertAreaGridTile on db manager object and pass the 5 values
+        oDBManager.insertAreaGridTile(sArea_id,iTileX,iTileY,ir,ig);
         //from above.
-        *****
+
         // ############
         // Response with confirmation of DB record written.
         out.println("{\"success\":true}");
