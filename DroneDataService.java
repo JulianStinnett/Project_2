@@ -89,7 +89,7 @@ public class DroneDataService extends HttpServlet{
 "nextTileY":"[next tile y]", "direction":"[direction string from above]"}
         */
         // ##############################
-        String sReturnJSON = "{\"area_id\":\"" + sArea_id + "\",\"nextTileX\":\"" + sTileX + "\",\"nextTileY\":\"" + sTileY + "\",\"direction\":\"" + sDirection + "\"}";
+        String sReturnJSON = "{\"area_id\":\"" + sArea_id + "\",\"nextTileX\":\"" + iTileX + "\",\"nextTileY\":\"" + iTileY + "\",\"direction\":\"" + sDirection + "\"}";
         out.println(sReturnJSON);
     }
 }
