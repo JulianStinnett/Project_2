@@ -6,10 +6,8 @@
         // Create two int variables -- iCols and iRows -- and fill them with params passed in called "colcount" and "rowcount".
         // You'll have to convert those incoming strings to ints.
         // ###############################
-
       int iCols = integer.parseInt(request.getParameters(colcount));
       int iRows = integer.parseInt(request.getParameters(rowcount));
-
       %>
 
     <style>
@@ -23,9 +21,7 @@
     <script src="js/dronesim.js"></script>
 
     <script>
-
       setTiles(<%=iCols%>, <%=iRows%>);
-
     </script>
 
   </head>
@@ -49,13 +45,8 @@
       // ###############################
       // Create first line of for loop here that loops iRows times.
       // ###############################
-             for(y = 0; x < iRows; x++){
-
-
-
+             for(y = 0; y < iRows; y++){
             }
-
-
           %>
           <tr>
           <%
@@ -63,7 +54,6 @@
           // Create first line of for loop here that loops iCols times.
           // ###############################
                //for(x = 0; x <= iCols; x++){
-
                }
             %>
             
@@ -76,7 +66,6 @@
 
             <%
           }
-
           %>
           </tr>
           <%
