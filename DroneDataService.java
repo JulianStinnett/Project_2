@@ -2,8 +2,10 @@ package com.dronerecon.ws;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
+import java.net.URL;
 import java.util.*;
 import java.security.SecureRandom;
+
 /**
  *
  * @author Julian Stinnett
@@ -17,14 +19,27 @@ public class DroneDataService extends HttpServlet{
         PrintWriter out = response.getWriter();
 
 
-        String sArea_id = request.getParameter("area_ids");
+        String sArea_id = request.getParameter("area_id");
         String sTileX = request.getParameter("tilex");
         String sTileY = request.getParameter("tiley");
         String sTotalCols = request.getParameter("totalcols");
         String sTotalRows = request.getParameter("totalrows");
 
-        String sDirection = "right";
+        String r =request.getParameter("r");
+        String g =request.getParameter("g");
 
+        // Send current drone loaction data to cloud for DB storage.
+        try {
+            // Call weather API.
+            URL url = new URL("http://127.0.0.1:8080/dronereconportal/PortalDBService?area_id=" + area_id + "&tilex=" + tilex + "&tiley=" + tiley + "&r=" + r + "&g=" + g);
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
+
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        String sDirection = "right";
         // ##############################
         // ##############################
         // 3. Calculate next drone move.
@@ -38,10 +53,7 @@ public class DroneDataService extends HttpServlet{
         int iTotalCols = Integer.parseInt(sTotalCols);
         int iTotalRows = Integer.parseInt(sTotalRows);
 
-        if(iTileX == (iTotalCols - 1)  && iTileY ==(iTotalRows - 1)){
-            sDirection = "stop";
-        else if()
-        }
+
 
         // ##############################
         // ##############################
