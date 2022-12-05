@@ -53,7 +53,33 @@ public class DroneDataService extends HttpServlet{
         int iTotalCols = Integer.parseInt(sTotalCols);
         int iTotalRows = Integer.parseInt(sTotalRows);
 
-
+        //check even row
+        if(iTileY % 2 == 0){
+            
+            //check if drone is on last col
+            if(iTileX == iTotalCols-1 ){
+                iTileY++;
+                sDirection = "left";
+            }
+            //drone is not on last col, adjust x.
+            else {
+                iTileX++;
+                sDirection = "right";
+            }
+        }
+        else {
+            if(iTileX == 0){
+                iTileY++;
+                sDirection = "right";
+            }
+            else {
+                iTileX--;
+                sDirection = "left";
+            }
+        }
+        if(iTileY == iTotalRows) {
+            sDirection = "stop";
+        }
 
         // ##############################
         // ##############################
@@ -63,7 +89,7 @@ public class DroneDataService extends HttpServlet{
 "nextTileY":"[next tile y]", "direction":"[direction string from above]"}
         */
         // ##############################
-        String sReturnJSON = "{\"area_id\":\"" + sArea_id + "\",\"nextTileX\":\"" + iTileX + "\",\"nextTileY\":\"" + iTileY + "\",\"direction\":\"" + sDirection + "\"}";
+        String sReturnJSON = "{\"area_id\":\"" + sArea_id + "\",\"nextTileX\":\"" + sTileX + "\",\"nextTileY\":\"" + sTileY + "\",\"direction\":\"" + sDirection + "\"}";
         out.println(sReturnJSON);
     }
 }
