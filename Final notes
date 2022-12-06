@@ -1,0 +1,27 @@
+1. 3 tier arch.
+     -presentation layer
+          *UI
+          *JSP
+                >decouple layers(single method connection between layers)
+      -business layer 
+         *business logic
+
+       -data layer
+            *code for managing database.(DBMANAGER)
+
+
+2. mvc
+  -Controller
+    (911 disbatch)
+      -decide where to pass info
+      
+  -model
+    handles data from controller
+    
+  -view
+    sends response to user.
+    
+    
+    
+3. design patterns 
+(Tutorialspoint design patterns on google)
