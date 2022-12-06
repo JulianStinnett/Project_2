@@ -16,16 +16,33 @@
     <body>
         <%
         String sArea_id = request.getParameter("Area_id");
-
+		
         DBManager oDBManager = new DBManager();
-
+		
         oDBManager.DBLocation = "C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps\\dronereconportal\\db\\dronedata.sqlite";
-
+		
         ArrayList<AreaGridTile> lstTiles.oDBManager.readAreadGridTiles(sArea_id);
-
+		
         AreaGridTile GridTileRmax = lstTiles.get(0);
-
+		
          AreaGridTile GridTileGmax = lstTiles.get(0);
-
-         for (i= 0; i < lstTiles.size(); i++){
-
+		 
+       
+			lstTiles.forEach((rTile) -> {
+				if (rTile.iR > GridTileRmax.iR{
+				GridTileRmax = rTile;
+				}
+			}
+			lstTiles.forEach((gTile) -> {
+				if (gTile.iG > GridTileGmax.iG) {
+				GridTileGmax = gTile;
+				}
+			}
+		<h1> The highest Red value is: <%=GridTileRmax.iX%>, <%GridTileRmax.iY%> </h1>
+		
+		
+		<h2> The highest Green value is: <%=GridTileGmax.iX%>, <%=GridTileGmax.iY%> </h2>
+			
+		%>
+		
+		
